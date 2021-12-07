@@ -3,14 +3,18 @@
     <h2>{{ roadmap.name }}</h2>
     <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <td v-if="index!==0">
-          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan" align="center"></i>
-        </td>
+        <tr>
+          <td v-if="index!==0">
+            <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan" align="center"></i>
+          </td>
+          <td style="vertical-align: middle;color:darkcyan">
+            <h4> {{ book.arrow_comment }}</h4>
+          </td>
+        </tr>
         <tr>
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
-
           <td style="vertical-align: top">
             <h3 style="margin:0px;">{{ book.title }}</h3>
             <table style="text-align: left">

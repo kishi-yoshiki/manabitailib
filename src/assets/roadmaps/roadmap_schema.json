@@ -11,13 +11,15 @@
           "title": "SCRUM BOOT CAMP THE BOOK",
           "author": "西村直人",
           "publisher": "翔泳社",
-          "cover_image": "/img/book/book02.jpg"
+          "cover_image": "/img/book/book02.jpg",
+          "arrow_comment": "次に読むのはコレ！"
       },
       {
           "title": "カイゼン・ジャーニー たった１人からはじめて、「越境」するチームをつくる",
           "author": "市谷聡啓",
           "publisher": "翔泳社",
-          "cover_image": "/img/book/book03.jpg"
+          "cover_image": "/img/book/book03.jpg",
+          "arrow_comment": "更に知りたい人はコレ！"
       }
   ]
 }
