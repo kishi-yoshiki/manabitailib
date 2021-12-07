@@ -2,16 +2,16 @@
   {
     "id" : 1,
     "name": "Alice",
-    "img":"../assets/logo.png"
+    "img":"require(@/assets/logo.png)"
   },
   {
     "id" : 2,
     "name": "Bob",
-    "img":"../assets/logo.png"
+    "img":"@/assets/logo.png"
   },
   {
     "id" : 3,
     "name": "Carol",
-    "img":"../assets/logo.png"
+    "img":"@/assets/logo.png"
   }
 ]
