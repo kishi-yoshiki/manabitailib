@@ -10,12 +10,10 @@
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
+
           <td style="vertical-align: top">
+            <h3 style="margin:0px;">{{ book.title }}</h3>
             <table style="text-align: left">
-              <tr>
-                <td>タイトル:</td>
-                <td>{{ book.title }}</td>
-              </tr>
               <tr>
                 <td>著者名:</td>
                 <td>{{ book.author }}</td>
