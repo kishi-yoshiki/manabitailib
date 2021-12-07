@@ -2,20 +2,20 @@
   <div id="app">
     <div>
       <h2 class="page-header">{{ roadmap.name }}</h2>
-      <p >{{ roadmap.outline }}</p>
+      <p class="lead" text-align = "left" overflow-wrap="normal">{{ roadmap.outline }}</p>
     </div>    
-    <table align="center">
+    <table align="center" style="padding-top:20px;">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
         <td v-if="index!==0" align="center">
-          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan"></i>
+          <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top: 10px"></i>
         </td>
         <tr>
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
 
-          <td style="vertical-align: top">
-            <h3 style="margin:0px;">{{ book.title }}</h3>
+          <td style="vertical-align: top; padding-left: 30px">
+            <h3 style="margin:0px; overflow-wrap:normal">{{ book.title }}</h3>
             <table style="text-align: left">
               <tr>
                 <td>著者名:</td>
@@ -50,8 +50,10 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
+  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: 120px;
+  margin-right: 120px;
 }
 </style>
