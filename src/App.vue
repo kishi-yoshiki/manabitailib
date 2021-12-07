@@ -1,38 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="これはテストです"/>
+    <h2>{{ roadmap.name }}</h2>
+    <table align="center">
+      <div v-for="(book, index) in roadmap.books" :key="book.title">
+        <td v-if="index!==0">
+          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan" align="center"></i>
+        </td>
+        <tr>
+          <td>
+            <img :src="book.cover_image" width="100px" height="130px" />
+          </td>
 
-    <table v-for="user in users" :key="user.id">
-      <tr>
-        <td>画像{{ user.id }}<br>
- 
-        <img v-bind:src="user.img" />
-        </td>
-        <td>
-          著者: {{ user.name }}<br />
-          出版:
-        </td>
-      </tr>
-      <td>⇓</td>
+          <td style="vertical-align: top">
+            <h3 style="margin:0px;">{{ book.title }}</h3>
+            <table style="text-align: left">
+              <tr>
+                <td>著者名:</td>
+                <td>{{ book.author }}</td>
+              </tr>
+              <tr>
+                <td>出版社:</td>
+                <td>{{ book.publisher }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </div>
     </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import users from "./assets/users.json";
+import roadmap from "./assets/roadmaps/roadmap_schema.json";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
+  name: "App",
   data() {
     return {
-      users: users,
+      roadmap: roadmap,
     };
   },
-}
+};
 </script>
 
 <style>
@@ -40,7 +47,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
