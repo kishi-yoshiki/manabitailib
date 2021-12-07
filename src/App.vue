@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div text-algin="left">
+    <div align="left">
       <h2 class="page-header">{{ roadmap.name }}</h2>
-      <p class="lead" style="overflow-wrap:normal">{{ roadmap.outline }}</p>
+      <p class="lead" style="overflow-wrap:normal;  text-algin=left">{{ roadmap.outline }}</p>
     </div>    
     <table align="center" style="padding-top:20px;">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
@@ -54,10 +54,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
+  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
   margin-left: 250px;
   margin-right: 250px;
+  margin-bottom: 60px;
 }
 </style>
