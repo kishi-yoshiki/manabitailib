@@ -31,14 +31,15 @@
 </template>
 
 <script>
-import roadmap from "./assets/roadmaps/roadmap_schema.json";
+var roadmapId = "roadmap_schema";
+//var roadmapId = "roadmap2";
 export default {
   name: "App",
-  data() {
-    return {
-      roadmap: roadmap,
-    };
-  },
+  computed: {
+    roadmap() {
+      return require("./assets/roadmaps/" + roadmapId + ".json");
+    }
+  }
 };
 </script>
 
