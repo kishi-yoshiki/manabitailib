@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <h2>{{ roadmap.name }}</h2>
-    <table>
+    <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <td v-if="index!==0"> ⇓</td>
+        <td v-if="index!==0">
+          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan" align="center"></i>
+        </td>
         <tr>
           <td>
             <img :src="book.cover_image" width="100px" height="100px"/>
