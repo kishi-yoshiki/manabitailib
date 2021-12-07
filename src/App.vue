@@ -21,6 +21,7 @@
       variant="outline-primary">
       Bootstrap Button
     </b-button>
+    <i class="bi bi-capslock"></i>
   </div>
 </template>
 
