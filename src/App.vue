@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <h2>{{ roadmap.name }}</h2>
+    <div>
+      <h2 class="page-header">{{ roadmap.name }}</h2>
+      <p >{{ roadmap.outline }}</p>
+    </div>    
     <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
         <tr>
