@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <h2>{{ roadmap.name }}</h2>
-    <table>
+    <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <td v-if="index!==0"> ⇓</td>
+        <tr>
+          <td v-if="index !== 0">⇓</td>
+        </tr>
         <tr>
           <td>
-            <img :src="book.cover_image" width="100px" height="100px"/>
+            <img :src="book.cover_image" width="100px" height="130px" />
           </td>
-          <td style="vertical-align: top;">
-           <table>
+          <td style="vertical-align: top">
+            <table style="text-align: left">
               <tr>
                 <td>タイトル:</td>
                 <td>{{ book.title }}</td>
@@ -47,7 +49,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
