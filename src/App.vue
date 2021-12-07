@@ -2,18 +2,22 @@
   <div id="app">
     <div>
       <h2 class="page-header">{{ roadmap.name }}</h2>
-      <p class="lead" text-align = "left" overflow-wrap="normal">{{ roadmap.outline }}</p>
+      <p class="lead" text-align="center" overflow-wrap="normal">{{ roadmap.outline }}</p>
     </div>    
     <table align="center" style="padding-top:20px;">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <td v-if="index!==0" align="center">
-          <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top: 10px"></i>
-        </td>
+        <tr v-if="index!==0">
+          <td align="center">
+            <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top: 10px"></i>
+          </td>
+          <td style="vertical-align:top; text-align:left; color:darkcyan">
+            <h4> {{ book.arrow_comment }}</h4>
+          </td>
+        </tr>
         <tr>
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
-
           <td style="vertical-align: top; padding-left: 30px">
             <h3 style="margin:0px; overflow-wrap:normal">{{ book.title }}</h3>
             <table style="text-align: left">
@@ -53,7 +57,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 </style>
