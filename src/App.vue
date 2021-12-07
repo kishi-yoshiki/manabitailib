@@ -6,7 +6,7 @@
     <table v-for="user in users" :key="user.id">
       <tr>
         <td>画像{{ user.id }}<br>
-        <img src="@/assets/logo.png" />
+          <img src="@/assets/logo.png" />
         </td>
         <td>
           著者: {{ user.name }}<br />
