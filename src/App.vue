@@ -1,19 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="これはテストです"/>
+    <h2>{{ roadmap.name }}</h2>
+    <table>
+      <div v-for="(book, index) in roadmap.books" :key="book.title">
+        <td v-if="index!==0"> ⇓</td>
+        <tr>
+          <td>
+            <img :src="book.cover_image" width="100px" height="100px"/>
+          </td>
+          <td style="vertical-align: top;">
+           <table>
+              <tr>
+                <td>タイトル:</td>
+                <td>{{ book.title }}</td>
+              </tr>
+              <tr>
+                <td>著者名:</td>
+                <td>{{ book.author }}</td>
+              </tr>
+              <tr>
+                <td>出版社:</td>
+                <td>{{ book.publisher }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </div>
+    </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import roadmap from "./assets/roadmaps/roadmap_schema.json";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      roadmap: roadmap,
+    };
+  },
+};
 </script>
 
 <style>

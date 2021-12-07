@@ -1,0 +1,23 @@
+{
+  "name": "ロードマップの名称",
+  "books": [
+      {
+          "title": "本のタイトル1",
+          "author": "本の著者1",
+          "cover_image": "/img/book/logo.png",
+          "publisher":"NS出版1"
+      },
+      {
+          "title": "本のタイトル2",
+          "author": "本の著者2",
+          "cover_image": "/img/book/logo.png",
+          "publisher":"NS出版2"
+      },
+      {
+          "title": "本のタイトル3",
+          "author": "本の著者3",
+          "cover_image": "/img/book/logo.png",
+          "publisher":"NS出版3"
+      }
+  ]
+}
