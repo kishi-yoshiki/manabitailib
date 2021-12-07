@@ -13,8 +13,14 @@
           出版:
         </td>
       </tr>
-      <td>⇓</td>
+      <div class="arrow"></div>
     </table>
+    <h1>This is an about page</h1>
+    <b-button
+      size="lg"
+      variant="outline-primary">
+      Bootstrap Button
+    </b-button>
   </div>
 </template>
 
@@ -49,5 +55,24 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.arrow{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  left: 80px;
+  border-top: 8px solid #5bc0de;
+  border-right: 8px solid #5bc0de;
+  box-sizing: border-box;
+}
+
+.arrow::after{
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  right: -17px;
+  border-top: 14px solid #5bc0de;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
 }
 </style>
