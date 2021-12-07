@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="@/assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
 
     <table v-for="user in users" :key="user.id">
       <tr>
         <td>画像{{ user.id }}<br>
- 
-        <img v-bind:src="user.img" />
+        <img src="@/assets/logo.png" />
         </td>
         <td>
           著者: {{ user.name }}<br />
@@ -20,6 +19,7 @@
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
 import users from "./assets/users.json";
 export default {
@@ -29,9 +29,15 @@ export default {
   },
   data() {
     return {
-      users: users,
+      users: users
     };
   },
+  method: {
+    img_func:function(srcs){
+      //return require(src)
+      return (srcs)
+    }
+  }
 }
 </script>
 
