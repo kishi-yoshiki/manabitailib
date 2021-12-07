@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <h2>{{ roadmap.name }}</h2>
+    <h2 class="page-header">{{ roadmap.name }}</h2>
     <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <td v-if="index!==0">
-          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan" align="center"></i>
+        <td v-if="index!==0" align="center">
+          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan"></i>
         </td>
         <tr>
           <td>
