@@ -31,13 +31,16 @@
 </template>
 
 <script>
-var roadmapId = "roadmap_schema";
-//var roadmapId = "roadmap2";
 export default {
   name: "App",
+  data() {
+    return {
+      roadmapId: "roadmap_schema" // 表示したロードマップのID。ロードマップの情報はassets/roadmapsフォルダに「(ロードマップID).json」というファイル名で配置されている。
+    };
+  },
   computed: {
     roadmap() {
-      return require("./assets/roadmaps/" + roadmapId + ".json");
+      return require("./assets/roadmaps/" + this.roadmapId + ".json");
     }
   }
 };
