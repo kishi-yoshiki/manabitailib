@@ -27,6 +27,7 @@
         </tr>
       </div>
     </table>
+    <router-view></router-view>
   </div>
 </template>
 
