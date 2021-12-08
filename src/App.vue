@@ -2,7 +2,7 @@
   <div id="app">
     <div align="left">
       <h2 class="page-header">{{ roadmap.name }}</h2>
-      <p class="lead" style="overflow-wrap:normal;  text-algin=left">{{ roadmap.outline }}</p>
+      <p class="lead" style="overflow-wrap:normal; text-algin=left">{{ roadmap.outline }}</p>
     </div>    
     <table align="center" style="padding-top:20px;">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
