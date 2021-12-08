@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <h2>{{ roadmap.name }}</h2>
-    <table align="center">
+    <div align="left">
+      <h2 class="page-header">{{ roadmap.name }}</h2>
+      <p class="lead" style="overflow-wrap:normal; text-algin=left">{{ roadmap.outline }}</p>
+    </div>    
+    <table align="center" style="padding-top:20px;">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <td v-if="index!==0">
-          <i class="bi bi-arrow-down" style="font-size:4rem;color:darkcyan" align="center"></i>
-        </td>
+        <tr v-if="index!==0">
+          <td align="center">
+            <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top: 10px"></i>
+          </td>
+          <td style="vertical-align:top; text-align:left; color:darkcyan">
+            <h4> {{ book.arrow_comment }}</h4>
+          </td>
+        </tr>
         <tr>
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
-
-          <td style="vertical-align: top">
-            <h3 style="margin:0px;">{{ book.title }}</h3>
+          <td style="vertical-align: top; padding-left: 30px">
+            <h3 style="margin:0px; overflow-wrap:normal">{{ book.title }}</h3>
             <table style="text-align: left">
               <tr>
                 <td>著者名:</td>
@@ -31,14 +38,18 @@
 </template>
 
 <script>
-import roadmap from "./assets/roadmaps/roadmap_schema.json";
 export default {
   name: "App",
   data() {
     return {
-      roadmap: roadmap,
+      roadmapId: "roadmap_schema" // 表示したロードマップのID。ロードマップの情報はassets/roadmapsフォルダに「(ロードマップID).json」というファイル名で配置されている。
     };
   },
+  computed: {
+    roadmap() {
+      return require("./assets/roadmaps/" + this.roadmapId + ".json");
+    }
+  }
 };
 </script>
 
@@ -47,8 +58,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
+  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: 250px;
+  margin-right: 250px;
+  margin-bottom: 60px;
 }
 </style>
