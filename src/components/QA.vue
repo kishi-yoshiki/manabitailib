@@ -1,17 +1,18 @@
 <template> 
 <div style="padding-top:10%;">
-
+    <h5 aling="left">質問スレッド一覧</h5>
     <form>
         <div v-for="question in QA.question" :key="question.question_name" id="QABOX">
-            <p style="overflow-wrap:normal; algin=left; text-algin=left;">
-                {{ question.question_name }}
-            </p>
+            <span style="algin=left; text-algin=left;">
+                Q：<p style="overflow-wrap:normal; algin=left; text-algin=left;">{{ question.question_name }}</p>
+            </span>
             <span>
-                <p v-for="answer in question.answer" :key="answer" 
+                <span v-for="answer in question.answer" :key="answer" 
                     style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:5%; padding-top:0.5%;">
                     <i class="bi bi-arrow-return-right" style="font-size:1.2rem; color:darkcyan; padding-right:1%"/>
-                    {{ answer }}
-                </p>
+                    A：
+                    <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
+                </span>
             </span>            
             <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
                 <label for="Quastion" class="form-label">回答・返信</label>
