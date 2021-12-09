@@ -116,6 +116,7 @@ export default {
   border-left: solid 5px #5d627b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   margin-left: 1.5%;
+  margin-bottom: 3.5%;
   padding-top: 1%;
   padding-bottom: 1%;
   padding-left: 2%;
