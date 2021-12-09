@@ -27,7 +27,22 @@
         </tr>
       </div>
     </table>
-    <router-view></router-view>
+
+<div>
+<b-button v-b-toggle.accordion-1-1.accordion-1-2 block>質問１</b-button>
+  <b-collapse id="accordion-1-1" visible style="max-width: 18rem">
+    <b-card>回答１</b-card>
+  </b-collapse>
+  <b-collapse id="accordion-1-2" visible>
+    <b-card>回答２</b-card>
+  </b-collapse>
+</div>
+<div>
+<b-button v-b-toggle.accordion-2-1.accordion-2-2 block>質問２</b-button>
+<b-collapse id="accordion-2-1" visible>回答１</b-collapse>
+<b-collapse id="accordion-2-2" visible>回答２</b-collapse>
+</div>
+
   </div>
 </template>
 
