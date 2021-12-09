@@ -2,9 +2,9 @@
 <div style="padding-top:10%;">
     <h5 aling="left">質問スレッド一覧</h5>
     <form>
-        <div v-for="(question,index) in QA.question" :key="question.question_title" id="QABOX">
-            <b-button v-b-toggle.index block>{{ index }} - {{ question.question_title }}</b-button>
-            <b-collapse id=index visible style="algin=left; text-algin=left;">
+        <div v-for="(question, index) in QA.question" :key="question.question_title" id="QABOX">
+            <b-button v-b-toggle="'accordion-' + index" block>{{ index }} - {{ question.question_title }}</b-button>
+            <b-collapse v-bind:id="'accordion-' + index"  visible style="algin=left; text-algin=left;">
                 <p style="overflow-wrap:normal; algin=left; text-algin=left;">
                     Q：{{ question.question_detail }}
                 </p>
@@ -14,7 +14,7 @@
                     A：
                     <span>
                         <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
-                     </span>
+                    </span>
                 </span>       
 
                 <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
@@ -39,7 +39,9 @@
             </span>
         </span>
     </form>
+   
 </div>
+
    
 </template>
     
