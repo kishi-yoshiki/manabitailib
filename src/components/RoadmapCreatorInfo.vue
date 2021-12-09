@@ -26,7 +26,6 @@
               <td>{{ creator.comment }}</td>
             </tr>
           </table>
-          <button class="btn btn-link" v-b-toggle.c-details variant="primary">もっと見る</button>
           <b-collapse id="c-details">
             <table>
               <tr>
@@ -42,7 +41,8 @@
                 <td>{{ creator.licenses }}</td>
               </tr>
             </table>
-          </b-collapse>
+          </b-collapse>          
+          <button class="btn btn-link" v-b-toggle.c-details variant="primary">もっと見る</button>
         </td>
       </tr>
     </table>

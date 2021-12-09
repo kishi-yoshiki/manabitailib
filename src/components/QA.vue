@@ -1,5 +1,5 @@
 <template> 
-  <div style="padding-top:10%;">
+  <div style="padding-top:5%;">
       <h5 aling="left" style="font-weight:bold">過去質問スレッド</h5>
       <form>
           <div v-for="(qa, index) in thread" :key="qa.question"> 
