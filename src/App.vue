@@ -41,14 +41,22 @@
       </div>
     </table>
     <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
+
+    <QAview />
+
   </div>
 </template>
 
 <script>
 import RoadmapCreatorInfo from './components/RoadmapCreatorInfo.vue';
+import QAview from "./components/QA.vue"
+import roadmap from "./assets/roadmaps/roadmap_schema.json";
 
 export default {
   name: "App",
+  components:{ 
+    QAview
+  },
   data() {
     return {
       roadmapId: "roadmap_schema", // 表示したロードマップのID。ロードマップの情報はassets/roadmapsフォルダに「(ロードマップID).json」というファイル名で配置されている。
@@ -70,12 +78,12 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
-  margin-left: 250px;
-  margin-right: 250px;
-  margin-bottom: 60px;
+  margin-top: 3%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3%;
 }
 .v_line_left {
   border-left: 1ex solid darkcyan;
