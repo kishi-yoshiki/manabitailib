@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="section-title">作成者情報</h3>
+    <h5 class="section-title"  style="font-weight:bold padding-bottom:5%">作成者情報</h5>
     <table style="text-align: left">
       <tr>
         <td valign="top">
@@ -9,13 +9,13 @@
           </div>
         </td>
         <td>
-          <h3>
+          <h4 style="font-weight:bold">
             <a v-bind:href="creator.url">
               {{ creator.name }} ({{ creator.name_roman }})
             </a>
             {{ creator.mail_address }}<br />
             {{ creator.division }}
-          </h3>
+          </h4>
           <table>
             <tr>
               <td>保有技術：</td>
@@ -46,7 +46,7 @@
         </td>
       </tr>
     </table>
-    <h3 class="section-title">この人が作成した他のロードマップ</h3>
+    <h4 class="section-title">この人が作成した他のロードマップ</h4>
     <ul>
       <li v-for="roadmap in creator.roadmaps" :key="roadmap.name" style="text-align: left;">
         {{ roadmap.name }}
