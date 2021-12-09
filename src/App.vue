@@ -43,6 +43,7 @@
 <script>
 import QAview from "./components/QA.vue"
 import roadmap from "./assets/roadmaps/roadmap_schema.json";
+
 export default {
   name: "App",
   components:{ 
@@ -50,9 +51,14 @@ export default {
   },
   data() {
     return {
-      roadmap: roadmap,
+      roadmapId: "roadmap_schema" // 表示したロードマップのID。ロードマップの情報はassets/roadmapsフォルダに「(ロードマップID).json」というファイル名で配置されている。
     };
   },
+  computed: {
+    roadmap() {
+      return require("./assets/roadmaps/" + this.roadmapId + ".json");
+    }
+  }
 };
 </script>
 
