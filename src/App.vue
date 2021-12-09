@@ -50,12 +50,12 @@
 <script>
 import RoadmapCreatorInfo from './components/RoadmapCreatorInfo.vue';
 import QAview from "./components/QA.vue"
-import roadmap from "./assets/roadmaps/roadmap_schema.json";
 
 export default {
   name: "App",
   components:{ 
-    QAview
+    QAview,
+    RoadmapCreatorInfo
   },
   data() {
     return {
@@ -66,9 +66,6 @@ export default {
     roadmap() {
       return require("./assets/roadmaps/" + this.roadmapId + ".json");
     },
-  },
-  components: {
-    RoadmapCreatorInfo
   }
 };
 </script>
