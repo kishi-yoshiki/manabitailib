@@ -8,7 +8,7 @@
             <img :src="creator.face_image" width="100px" height="100px" />
           </div>
         </td>
-        <td>
+        <td style="padding-left:1%">
           <h4 style="font-weight:bold">
             <a v-bind:href="creator.url">
               {{ creator.name }} ({{ creator.name_roman }})
@@ -26,7 +26,7 @@
               <td>{{ creator.comment }}</td>
             </tr>
           </table>
-          <b-button v-b-toggle.c-details variant="primary">もっと見る</b-button>
+          <button class="btn btn-link" v-b-toggle.c-details variant="primary">もっと見る</button>
           <b-collapse id="c-details">
             <table>
               <tr>
@@ -46,9 +46,9 @@
         </td>
       </tr>
     </table>
-    <h4 class="section-title">この人が作成した他のロードマップ</h4>
+    <h5 class="section-title">この人が作成した他のロードマップ</h5>
     <ul>
-      <li v-for="roadmap in creator.roadmaps" :key="roadmap.name" style="text-align: left;">
+      <li v-for="roadmap in creator.roadmaps" :key="roadmap.name" style="text-align:left; padding-top:1%">
         {{ roadmap.name }}
       </li>
     </ul>
