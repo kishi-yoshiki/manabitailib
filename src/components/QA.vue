@@ -2,7 +2,7 @@
 <div style="padding-top:10%;">
     <h5 aling="left">質問スレッド一覧</h5>
     <form>
-        <div v-for="question in QA.question" :key="question.question_name" id="QABOX">
+        <div v-for="question in QA.question" :key="question.question_title" id="QABOX">
             <span style="algin=left; text-algin=left;">
                 Q：<p style="overflow-wrap:normal; algin=left; text-algin=left;">{{ question.question_detail }}</p>
             </span>
@@ -11,7 +11,9 @@
                     style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:5%; padding-top:0.5%;">
                     <i class="bi bi-arrow-return-right" style="font-size:1.2rem; color:darkcyan; padding-right:1%"/>
                     A：
-                    <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
+                    <span>
+                        <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
+                     </span>
                 </span>
             </span>            
             <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
@@ -27,11 +29,13 @@
                 <textarea class="form-control" id="QuastionDetail" rows="3"></textarea>
             <div id="emailHelp" class="form-text">ここに質問内容を記載してください</div>
         </div>
-        <div class="mb-3 form-check">
+        <span class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="anyone-check">匿名で質問を投稿</label>
-        </div>
-        <button type="quastion" class="btn btn-success">投稿</button>
+            <span class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="quastion" class="btn btn-success">投稿</button>
+            </span>
+        </span>
     </form>
 </div>
    
@@ -40,7 +44,7 @@
 <script>
 import QA from "../assets/roadmaps/QA.json";
 export default {
-  name: 'HelloWorld',
+  name: 'QAview',
   data() {
     return {
       QA: QA,
