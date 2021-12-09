@@ -4,7 +4,7 @@
     <form>
         <div v-for="question in QA.question" :key="question.question_name" id="QABOX">
             <span style="algin=left; text-algin=left;">
-                Q：<p style="overflow-wrap:normal; algin=left; text-algin=left;">{{ question.question_name }}</p>
+                Q：<p style="overflow-wrap:normal; algin=left; text-algin=left;">{{ question.question_detail }}</p>
             </span>
             <span>
                 <span v-for="answer in question.answer" :key="answer" 
