@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <div>
-      <h3 class="page-header" text-align="left">{{ roadmap.name }}</h3>
-      <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-top:1%; padding-bottom:2%">{{ roadmap.outline }}</p>
-    </div>    
-    <table align="center">
+    <div align="left">
+      <h2 class="page-header">{{ roadmap.name }}</h2>
+      <h5 style="margin-bottom: 15px;">作成者: {{ roadmap.creator.name }} </h5>
+      <p class="lead" style="overflow-wrap:normal; text-algin=left">
+        {{ roadmap.outline }}
+      </p>
+    </div>
+    <table align="center" style="padding-top: 20px">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <tr v-if="index!==0">
+        <tr v-if="index !== 0">
           <td align="center">
-            <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top:2%"></i>
+            <i
+              class="bi bi-chevron-double-down"
+              style="font-size: 3rem; color: darkcyan; padding-top: 10px"
+            ></i>
           </td>
-          <td style="vertical-align:middle; text-align:left; color:darkcyan">
-            <h7> {{ book.arrow_comment }}</h7>
+          <td style="vertical-align: top; text-align: left; color: darkcyan">
+            <h4>{{ book.arrow_comment }}</h4>
           </td>
         </tr>
         <tr>
@@ -19,7 +25,7 @@
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
           <td style="vertical-align: top; padding-left: 30px">
-            <h5 style="margin:0px; overflow-wrap:normal">{{ book.title }}</h5>
+            <h3 style="margin: 0px; overflow-wrap: normal">{{ book.title }}</h3>
             <table style="text-align: left">
               <tr>
                 <td>著者名:</td>
@@ -34,6 +40,7 @@
         </tr>
       </div>
     </table>
+    <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
 
     <QAview />
 
@@ -41,18 +48,25 @@
 </template>
 
 <script>
+import RoadmapCreatorInfo from './components/RoadmapCreatorInfo.vue';
 import QAview from "./components/QA.vue"
-import roadmap from "./assets/roadmaps/roadmap_schema.json";
+
 export default {
   name: "App",
   components:{ 
-    QAview
+    QAview,
+    RoadmapCreatorInfo
   },
   data() {
     return {
-      roadmap: roadmap,
+      roadmapId: "roadmap_schema", // 表示したロードマップのID。ロードマップの情報はassets/roadmapsフォルダに「(ロードマップID).json」というファイル名で配置されている。
     };
   },
+  computed: {
+    roadmap() {
+      return require("./assets/roadmaps/" + this.roadmapId + ".json");
+    },
+  }
 };
 </script>
 
@@ -67,5 +81,14 @@ export default {
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 3%;
+}
+.v_line_left {
+  border-left: 1ex solid darkcyan;
+  padding-left: 10px;
+}
+.section-title {
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 5px;
 }
 </style>

@@ -23,5 +23,26 @@
           "cover_image": "/img/book/book03.jpg",
           "arrow_comment": "更に知りたい人はコレ！"
       }
-  ]
+  ],
+  "creator": {
+      "name": "山田 太郎",
+      "name_roman": "YAMADA Taro",
+      "mail_address": "taro.yamada@example.com",
+      "tel": "03-1234-5678",
+      "division": "DXIC",
+      "projects": "XX開発案件, YY構築プロジェクト",
+      "licenses": "基本情報技術者,Oracle MASTER Platinum",
+      "skills": "Java, Vue.js, Oracle",
+      "comment": "よろしく！",
+      "url": "https://sns.example.com/yamada",
+      "face_image": "/img/people/creator1.png",
+      "roadmaps": [
+          {
+              "name": "クラウド入門　学習ロードマップ"
+          },
+          {
+              "name": "デザイン入門　学習ロードマップ"
+          }
+      ]
+  }
 }
