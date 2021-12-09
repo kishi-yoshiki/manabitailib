@@ -2,27 +2,28 @@
   <div style="padding-top:10%;">
       <h5 aling="left">質問スレッド一覧</h5>
       <form>
-          <div v-for="(qa, index) in thread" :key="qa.question" id="QABOX">
-              <b-button v-b-toggle="'accordion-' + index" block>{{ index }} - {{ qa.question }}</b-button>
-              <b-collapse v-bind:id="'accordion-' + index"  visible style="algin=left; text-algin=left;">
-                  <p style="overflow-wrap:normal; algin=left; text-algin=left;">
-                      Q：{{ qa.question_detail }}
-                  </p>
-                  <span v-for="answer in qa.answers" :key="answer" 
-                      style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:5%; padding-top:0.5%;">
-                      <i class="bi bi-arrow-return-right" style="font-size:1.2rem; color:darkcyan; padding-right:1%"/>
-                      A：
-                      <span>
-                          <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
-                      </span>
-                  </span>       
-
-                  <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
-                      <label for="Quastion" class="form-label">回答・返信</label>
-                      <textarea class="form-control" id="QuastionDetail" rows="3" v-model="newAnswer"></textarea>
-                      <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-top:1%;">
-                          <button type="button" class="btn btn-success btn-sm" @click="postAnswer(index)">回答</button>
-                      </div>
+          <div v-for="(qa, index) in thread" :key="qa.question">
+              <b-button v-b-toggle="'accordion-' + index">{{ index }} - {{ qa.question }}</b-button>
+              <b-collapse v-bind:id="'accordion-' + index" visible style="algin=left; text-algin=left;">
+                  <div id="QABOX">
+                    <p style="overflow-wrap:normal; algin=left; text-algin=left;">
+                        Q：{{ qa.question_detail }}
+                    </p>
+                    <span v-for="answer in qa.answers" :key="answer" 
+                        style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:5%; padding-top:0.5%;">
+                        <i class="bi bi-arrow-return-right" style="font-size:1.2rem; color:darkcyan; padding-right:1%"/>
+                        A：
+                        <span>
+                            <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
+                        </span>
+                    </span>       
+                    <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
+                        <label for="Quastion" class="form-label">回答・返信</label>
+                        <textarea class="form-control" id="QuastionDetail" rows="3" v-model="newAnswer"></textarea>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-top:1%;">
+                            <button type="button" class="btn btn-success btn-sm" @click="postAnswer(index)">回答</button>
+                        </div>
+                    </div>
                   </div>
               </b-collapse>
           </div>
