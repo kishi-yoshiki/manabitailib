@@ -1,3 +1,7 @@
+<!--jsonserver起動コマンド 
+npx json-server --watch db.json
+ -->
+
 <template>
   <div>
     <!-- dbの中身 -->
@@ -74,6 +78,9 @@ export default {
         answers: this.thread[i].answers,
       }),
       headers: new Headers({ "Content-type": "application/json" }),
+      })
+      .then(() => {
+        this.newAnswer = "";
       });
     },
   },
