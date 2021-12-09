@@ -33,7 +33,7 @@
       "skills": "Java, Vue.js, Oracle",
       "comment": "よろしく！",
       "url": "https://sns.example.com/yamada",
-      "face_image": "/public/people/creator1.png",
+      "face_image": "/img/people/creator1.png",
       "roadmaps": [
           {
               "name": "クラウド入門　学習ロードマップ"
