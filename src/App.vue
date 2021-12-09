@@ -2,6 +2,7 @@
   <div id="app">
     <div align="left">
       <h2 class="page-header">{{ roadmap.name }}</h2>
+      <h5 style="margin-bottom: 15px;">作成者: {{ roadmap.creator.name }} </h5>
       <p class="lead" style="overflow-wrap:normal; text-algin=left">
         {{ roadmap.outline }}
       </p>
@@ -39,44 +40,61 @@
         </tr>
       </div>
     </table>
-    <table style="text-align: left">
+
+  <h3 class="section-title">作成者情報</h3>
+    <table style="text-align: left;">
       <tr>
-        <td>
-          <img src="/img/book/logo.png" width="100px" height="130px" style="align: top"/>
+        <td valign="top">
+          <div class="v_line_left">
+            <img
+              :src="roadmap.creator.face_image"
+              width="100px"
+              height="100px"
+            />
+          </div>
         </td>
         <td>
-          <h3>{{ roadmap.creator.name }}</h3>
+          <h3>
+            <a v-bind:href="roadmap.creator.url">
+              {{ roadmap.creator.name }} ({{ roadmap.creator.name_roman }})
+            </a>
+            {{ roadmap.creator.mail_address }}<br />
+            {{ roadmap.creator.division }}
+          </h3>
           <table>
             <tr>
-              <td>保有技術</td>
-              <td>JAVA</td>
+              <td>保有技術：</td>
+              <td>{{ roadmap.creator.skills }}</td>
             </tr>
             <tr>
-              <td>担当した案件</td>
-              <td>〇〇案件、××案件</td>
-            </tr>
-            <tr>
-              <td>自己紹介文</td>
-              <td>困ったことがあればなんでも聞いてください！</td>
+              <td>コメント：</td>
+              <td>{{ roadmap.creator.comment }}</td>
             </tr>
           </table>
           <b-button v-b-toggle.c-details variant="primary">もっと見る</b-button>
           <b-collapse id="c-details">
             <table>
+            <tr>
+              <td>担当した案件：</td>
+              <td>{{ roadmap.creator.projects }}</td>
+            </tr>
+            <tr>
+              <td>電話番号：</td>
+              <td>{{ roadmap.creator.tel }}</td>
+            </tr>
               <tr>
-                <td>
-                  URL
-                </td>
-                <td>
-                  https://example.com/yamada/
-                </td>
+                <td>保有資格：</td>
+                <td>{{ roadmap.creator.licenses }}</td>
               </tr>
               <tr>
+                <td>この人が作成した他のロードマップ：</td>
                 <td>
-                  保有資格
-                </td>
-                <td>
-                  基本情報技術者,Oracle MASTER Platinum
+                  <div
+                    v-for="roadmaps in roadmap.creator.roadmaps"
+                    :key="roadmaps.name"
+                  >
+                    {{ roadmaps.name }}
+                  </div>
                 </td>
               </tr>
             </table>
@@ -84,6 +102,7 @@
         </td>
       </tr>
     </table>
+  <h3 class="section-title">この人が作成した他のロードマップ</h3>
   </div>
 </template>
 
@@ -114,5 +133,14 @@ export default {
   margin-left: 250px;
   margin-right: 250px;
   margin-bottom: 60px;
+}
+.v_line_left {
+  border-left: 1ex solid darkcyan;
+  padding-left: 10px;
+}
+.section-title {
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 5px;
 }
 </style>
