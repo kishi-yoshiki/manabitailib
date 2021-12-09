@@ -40,73 +40,13 @@
         </tr>
       </div>
     </table>
-
-  <h3 class="section-title">作成者情報</h3>
-    <table style="text-align: left;">
-      <tr>
-        <td valign="top">
-          <div class="v_line_left">
-            <img
-              :src="roadmap.creator.face_image"
-              width="100px"
-              height="100px"
-            />
-          </div>
-        </td>
-        <td>
-          <h3>
-            <a v-bind:href="roadmap.creator.url">
-              {{ roadmap.creator.name }} ({{ roadmap.creator.name_roman }})
-            </a>
-            {{ roadmap.creator.mail_address }}<br />
-            {{ roadmap.creator.division }}
-          </h3>
-          <table>
-            <tr>
-              <td>保有技術：</td>
-              <td>{{ roadmap.creator.skills }}</td>
-            </tr>
-            <tr>
-              <td>コメント：</td>
-              <td>{{ roadmap.creator.comment }}</td>
-            </tr>
-          </table>
-          <b-button v-b-toggle.c-details variant="primary">もっと見る</b-button>
-          <b-collapse id="c-details">
-            <table>
-            <tr>
-              <td>担当した案件：</td>
-              <td>{{ roadmap.creator.projects }}</td>
-            </tr>
-            <tr>
-              <td>電話番号：</td>
-              <td>{{ roadmap.creator.tel }}</td>
-            </tr>
-              <tr>
-                <td>保有資格：</td>
-                <td>{{ roadmap.creator.licenses }}</td>
-              </tr>
-              <tr>
-                <td>この人が作成した他のロードマップ：</td>
-                <td>
-                  <div
-                    v-for="roadmaps in roadmap.creator.roadmaps"
-                    :key="roadmaps.name"
-                  >
-                    {{ roadmaps.name }}
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </b-collapse>
-        </td>
-      </tr>
-    </table>
-  <h3 class="section-title">この人が作成した他のロードマップ</h3>
+    <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
   </div>
 </template>
 
 <script>
+import RoadmapCreatorInfo from './components/RoadmapCreatorInfo.vue';
+
 export default {
   name: "App",
   data() {
@@ -119,6 +59,9 @@ export default {
       return require("./assets/roadmaps/" + this.roadmapId + ".json");
     },
   },
+  components: {
+    RoadmapCreatorInfo
+  }
 };
 </script>
 
