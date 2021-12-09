@@ -19,7 +19,7 @@
 
                   <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
                       <label for="Quastion" class="form-label">回答・返信</label>
-                      <textarea class="form-control" id="QuastionDetail" rows="3" v-model="newAnswer"></textarea>
+                      <textarea class="form-control" id="QuastionDetail" rows="3" v-model="newAnswer[index]"></textarea>
                       <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-top:1%;">
                           <button type="button" class="btn btn-success btn-sm" @click="postAnswer(index)">回答</button>
                       </div>
@@ -51,7 +51,7 @@ export default {
       //質問スレッド
       thread: [],
       //投稿する回答
-      newAnswer: "",
+      newAnswer: [],
       //投稿する質問題名
       newQuestion:"",
       //投稿する質問内容
@@ -94,7 +94,7 @@ export default {
     },
     // 回答を投稿
     postAnswer(i) {
-      this.thread[i].answers.push(this.newAnswer);
+      this.thread[i].answers.push(this.newAnswer[i]);
       fetch(`http://localhost:3000/thread/${i+1}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -105,7 +105,7 @@ export default {
       headers: new Headers({ "Content-type": "application/json" }),
       })
       .then(() => {
-        this.newAnswer = "";
+        this.newAnswer = [];
       });
     },
   },
