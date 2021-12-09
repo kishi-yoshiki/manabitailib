@@ -1,88 +1,57 @@
-<!--jsonserver起動コマンド 
-npx json-server --watch db.json
- -->
-
 <template>
-  <div>
-    <!-- dbの中身 -->
-    {{ thread }}<br /><br />
-    <!-- 投稿 -->
-    <input type="text" id="form" v-model="newQuestion" />
-    <input type="button" value="投稿" @click="postQuestion"><br /><br />
-    <!-- スレッド表示 -->
-    <div v-for="(qa, index) in thread" :key="qa.id">
-      <!-- 質問タイトル表示 -->
-      <p>{{index+1}}</p>
-      {{ qa.question }}<br />
-      <!-- 回答表示 -->
-      <div v-for="answer in qa.answers" :key="answer.id">
-        {{ answer }}<br />
+  <div id="app">
+    <div>
+      <h3 class="page-header" text-align="left">{{ roadmap.name }}</h3>
+      <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-top:1%; padding-bottom:2%">{{ roadmap.outline }}</p>
+    </div>    
+    <table align="center">
+      <div v-for="(book, index) in roadmap.books" :key="book.title">
+        <tr v-if="index!==0">
+          <td align="center">
+            <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top:2%"></i>
+          </td>
+          <td style="vertical-align:middle; text-align:left; color:darkcyan">
+            <h7> {{ book.arrow_comment }}</h7>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img :src="book.cover_image" width="100px" height="130px" />
+          </td>
+          <td style="vertical-align: top; padding-left: 30px">
+            <h5 style="margin:0px; overflow-wrap:normal">{{ book.title }}</h5>
+            <table style="text-align: left">
+              <tr>
+                <td>著者名:</td>
+                <td>{{ book.author }}</td>
+              </tr>
+              <tr>
+                <td>出版社:</td>
+                <td>{{ book.publisher }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
       </div>
-      <!-- 回答 -->
-      <input type="text" id="form" v-model="newAnswer" />
-      <input type="button" value="回答" @click="postAnswer(index)" /><br /><br />
-    </div>
+    </table>
+
+    <QAview />
+
   </div>
 </template>
 
 <script>
+import QAview from "./components/QA.vue"
+import roadmap from "./assets/roadmaps/roadmap_schema.json";
 export default {
+  name: "App",
+  components:{ 
+    QAview
+  },
   data() {
     return {
-      //質問スレッド
-      thread: [],
-      //投稿する質問
-      newAnswer: "",
-      //投稿する回答
-      newQuestion:""
+      roadmap: roadmap,
     };
-  },
-  // jsonseverからデータを読み込んでthread変数に格納
-  created() {
-    this.read();
-  },
-
-  methods: {
-    // 一覧描画
-    read() {
-      fetch("http://localhost:3000/thread")
-        .then((res) => res.json())
-        .then((res) => (this.thread = res));
-    },
-    // 質問を投稿
-    postQuestion() {
-      fetch("http://localhost:3000/thread", {
-        method: "POST",
-        body: JSON.stringify({
-          id:this.thread.length+1,
-          question: this.newQuestion,
-          answers: []
-        }),
-        headers: new Headers({ "Content-type": "application/json" }),
-      }).then(() => {
-        this.thread.push({
-          id:this.thread.length+1,
-          question: this.newQuestion,
-          answers: []
-        });
-        this.newQuestion = "";
-      });
-    },
-    // 回答を投稿
-    postAnswer(i) {
-      this.thread[i].answers.push(this.newAnswer);
-      fetch(`http://localhost:3000/thread/${i+1}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        question: this.thread[i].question,
-        answers: this.thread[i].answers,
-      }),
-      headers: new Headers({ "Content-type": "application/json" }),
-      })
-      .then(() => {
-        this.newAnswer = "";
-      });
-    },
   },
 };
 </script>
@@ -92,11 +61,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
-  margin-left: 250px;
-  margin-right: 250px;
-  margin-bottom: 60px;
+  margin-top: 3%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3%;
 }
 </style>
