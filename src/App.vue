@@ -42,7 +42,7 @@
     <table style="text-align: left">
       <tr>
         <td>
-          <img src="/img/book/logo.png" width="100px" height="130px" />
+          <img src="/img/book/logo.png" width="100px" height="130px" style="align: top"/>
         </td>
         <td>
           <h3>{{ roadmap.creator.name }}</h3>
@@ -60,6 +60,27 @@
               <td>困ったことがあればなんでも聞いてください！</td>
             </tr>
           </table>
+          <b-button v-b-toggle.c-details variant="primary">もっと見る</b-button>
+          <b-collapse id="c-details">
+            <table>
+              <tr>
+                <td>
+                  URL
+                </td>
+                <td>
+                  https://example.com/yamada/
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  保有資格
+                </td>
+                <td>
+                  基本情報技術者,Oracle MASTER Platinum
+                </td>
+              </tr>
+            </table>
+          </b-collapse>
         </td>
       </tr>
     </table>
