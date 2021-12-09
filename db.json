@@ -1,0 +1,22 @@
+{
+  "thread": [
+    {
+      "question": "アジャイル開発について",
+      "answers": [
+        "xxx1",
+        "xxx2",
+        "xxx3"
+      ],
+      "id": 1
+    },
+    {
+      "question": "Vue.jsで基本機能を実装",
+      "answers": [
+        "yyy1",
+        "yyy2",
+        "yyy3"
+      ],
+      "id": 2
+    }
+  ]
+}

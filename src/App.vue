@@ -1,55 +1,82 @@
 <template>
-  <div id="app">
-    <div align="left">
-      <h2 class="page-header">{{ roadmap.name }}</h2>
-      <p class="lead" style="overflow-wrap:normal; text-algin=left">{{ roadmap.outline }}</p>
-    </div>    
-    <table align="center" style="padding-top:20px;">
-      <div v-for="(book, index) in roadmap.books" :key="book.title">
-        <tr v-if="index!==0">
-          <td align="center">
-            <i class="bi bi-chevron-double-down" style="font-size:3rem; color:darkcyan; padding-top: 10px"></i>
-          </td>
-          <td style="vertical-align:top; text-align:left; color:darkcyan">
-            <h4> {{ book.arrow_comment }}</h4>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <img :src="book.cover_image" width="100px" height="130px" />
-          </td>
-          <td style="vertical-align: top; padding-left: 30px">
-            <h3 style="margin:0px; overflow-wrap:normal">{{ book.title }}</h3>
-            <table style="text-align: left">
-              <tr>
-                <td>著者名:</td>
-                <td>{{ book.author }}</td>
-              </tr>
-              <tr>
-                <td>出版社:</td>
-                <td>{{ book.publisher }}</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+  <div>
+    <!-- dbの中身 -->
+    {{ thread }}<br /><br />
+    <!-- 投稿 -->
+    <input type="text" id="form" v-model="newQuestion" />
+    <input type="button" value="投稿" @click="postQuestion"><br /><br />
+    <!-- スレッド表示 -->
+    <div v-for="(qa, index) in thread" :key="qa.id">
+      <!-- 質問タイトル表示 -->
+      <p>{{index+1}}</p>
+      {{ qa.question }}<br />
+      <!-- 回答表示 -->
+      <div v-for="answer in qa.answers" :key="answer.id">
+        {{ answer }}<br />
       </div>
-    </table>
+      <!-- 回答 -->
+      <input type="text" id="form" v-model="newAnswer" />
+      <input type="button" value="回答" @click="postAnswer(index)" /><br /><br />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
   data() {
     return {
-      roadmapId: "roadmap_schema" // 表示したロードマップのID。ロードマップの情報はassets/roadmapsフォルダに「(ロードマップID).json」というファイル名で配置されている。
+      //質問スレッド
+      thread: [],
+      //投稿する質問
+      newAnswer: "",
+      //投稿する回答
+      newQuestion:""
     };
   },
-  computed: {
-    roadmap() {
-      return require("./assets/roadmaps/" + this.roadmapId + ".json");
-    }
-  }
+  // jsonseverからデータを読み込んでthread変数に格納
+  created() {
+    this.read();
+  },
+
+  methods: {
+    // 一覧描画
+    read() {
+      fetch("http://localhost:3000/thread")
+        .then((res) => res.json())
+        .then((res) => (this.thread = res));
+    },
+    // 質問を投稿
+    postQuestion() {
+      fetch("http://localhost:3000/thread", {
+        method: "POST",
+        body: JSON.stringify({
+          id:this.thread.length+1,
+          question: this.newQuestion,
+          answers: []
+        }),
+        headers: new Headers({ "Content-type": "application/json" }),
+      }).then(() => {
+        this.thread.push({
+          id:this.thread.length+1,
+          question: this.newQuestion,
+          answers: []
+        });
+        this.newQuestion = "";
+      });
+    },
+    // 回答を投稿
+    postAnswer(i) {
+      this.thread[i].answers.push(this.newAnswer);
+      fetch(`http://localhost:3000/thread/${i+1}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        question: this.thread[i].question,
+        answers: this.thread[i].answers,
+      }),
+      headers: new Headers({ "Content-type": "application/json" }),
+      });
+    },
+  },
 };
 </script>
 
