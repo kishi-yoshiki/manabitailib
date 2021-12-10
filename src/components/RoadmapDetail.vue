@@ -87,15 +87,16 @@ export default {
     border: solid 3px darkcyan;
     background-color: mintcream;
     box-shadow: 3px 3px 3px #ccc;
+    font-size: 13px;
 }
 .recomend .box-title {
     position: absolute;
     display: inline-block;
-    top: -27px;
+    top: -22px;
     left: -3px;
-    padding: 0 9px;
-    height: 25px;
-    line-height: 25px;
+    padding: 0 7px;
+    height: 20px;
+    line-height: 20px;
     font-size: 12px;
     background: darkcyan;
     color: #ffffff;
