@@ -3,10 +3,12 @@
       <h5 aling="left" style="font-weight:bold">過去質問スレッド</h5>
       <form>          
         <div style="padding-top:1%; margin-bottom:5%;">
-          <div v-for="(qa, index) in thread" :key="qa.question"> 
+          <div v-for="(qa, index) in thread" :key="qa.question">
+              <!-- 質問タイトル -->
               <div class="d-grid gap-2" style="text-align:left; padding-top:1%">
                 <button class="btn btn-light btn-outline-dark" style="text-align:left; padding-top:1%;" type="button" v-b-toggle="'accordion-' + index">{{ qa.question }}</button>
               </div>
+              <!-- アコーディオン-->
               <b-collapse v-bind:id="'accordion-' + index" style="algin:left; text-algin:left;">
                   <div id="QABOX">
                   <p style="overflow-wrap:normal; align:left; text-align:left; padding-top:1%">
@@ -29,6 +31,7 @@
                   </div>
                   </div>
               </b-collapse>
+
           </div>          
         </div>
           <hr>
