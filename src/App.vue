@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <div align="left">
-      <h2 class="page-header">{{ roadmap.name }}</h2>
+    <div align="left" style="padding-bottom: 2%">
+      <h3 class="page-header" style="font-weight:bold">{{ roadmap.name }}</h3>
       <h5 style="margin-bottom: 15px;">作成者: {{ roadmap.creator.name }} </h5>
-      <p class="lead" style="overflow-wrap:normal; text-algin=left">
-        {{ roadmap.outline }}
+      <p style="overflow-wrap:normal; text-algin=left">
+      {{ roadmap.outline }}
       </p>
     </div>
-    <table align="center" style="padding-top: 20px">
+    <div style="margin-bottom:5%;">
+    <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
         <tr v-if="index !== 0">
           <td align="center">
@@ -16,16 +17,16 @@
               style="font-size: 3rem; color: darkcyan; padding-top: 10px"
             ></i>
           </td>
-          <td style="vertical-align: top; text-align: left; color: darkcyan">
-            <h4>{{ book.arrow_comment }}</h4>
+          <td style="vertical-align: middle; text-align: left; color: darkcyan">
+            <h6>{{ book.arrow_comment }}</h6>
           </td>
         </tr>
         <tr>
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
-          <td style="vertical-align: top; padding-left: 30px">
-            <h3 style="margin: 0px; overflow-wrap: normal">{{ book.title }}</h3>
+          <td style="vertical-align:top; padding-left:30px">
+            <h5 style="margin: 0px; overflow-wrap: normal; font-weight: bold">{{ book.title }}</h5>
             <table style="text-align: left">
               <tr>
                 <td>著者名:</td>
@@ -40,10 +41,11 @@
         </tr>
       </div>
     </table>
+    </div>
+    <hr>
     <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
-
+    <hr>
     <QAview />
-
   </div>
 </template>
 
@@ -80,7 +82,7 @@ export default {
   margin-top: 3%;
   margin-left: 20%;
   margin-right: 20%;
-  margin-bottom: 3%;
+  margin-bottom: 50%;
 }
 .v_line_left {
   border-left: 1ex solid darkcyan;
