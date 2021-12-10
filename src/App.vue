@@ -14,8 +14,11 @@
       id="accordion-roadmap1"
       style="algin: left; text-algin: left"
     >
-    <br>
-      <div align="left" style="padding-bottom: 2%">
+    <!--
+    <div class="border-arrange1" style="margin-top: 50px;border: 1px solid black;">
+      -->
+    <div class="border-arrange1" style="margin-top: 50px;">
+      <div align="left" style="padding-bottom: 2%;">
         <h3 class="page-header" style="font-weight: bold">
           {{ roadmap.name }}
         </h3>
@@ -73,7 +76,38 @@
       <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
       <hr />
       <QAview />
+    </div>
     </b-collapse>
+        <div class="d-grid gap-2" style="text-align: left; padding-top: 1%">
+      <button
+        class="btn btn-light btn-outline-dark"
+        style="text-align: left; padding-top: 1%"
+        type="button"
+        v-b-toggle="'accordion-roadmap2'"
+      >
+        クラウド 学習ロードマップ
+      </button>
+    </div>
+        <div class="d-grid gap-2" style="text-align: left; padding-top: 1%">
+      <button
+        class="btn btn-light btn-outline-dark"
+        style="text-align: left; padding-top: 1%"
+        type="button"
+        v-b-toggle="'accordion-roadmap2'"
+      >
+        データベース 学習ロードマップ
+      </button>
+    </div>
+        <div class="d-grid gap-2" style="text-align: left; padding-top: 1%">
+      <button
+        class="btn btn-light btn-outline-dark"
+        style="text-align: left; padding-top: 1%"
+        type="button"
+        v-b-toggle="'accordion-roadmap2'"
+      >
+        Webアプリ開発 学習ロードマップ
+      </button>
+    </div>
   </div>
 </template>
 
@@ -121,4 +155,13 @@ export default {
   margin-top: 50px;
   margin-bottom: 5px;
 }
+      .border-arrange1 {
+        /* width: 480px; */
+        padding: 10px;
+        margin: 20px;
+        font-size: 26px;
+        border-left: 10px solid #ff6347;
+        border-bottom: 2px solid #ff6347;
+        background-color: #eee;
+      }
 </style>
