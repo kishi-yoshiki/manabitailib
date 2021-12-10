@@ -1,20 +1,23 @@
 <template> 
-  <div style="padding-top:5%;">
+  <div style="padding-top:1%;">
       <h5 aling="left" style="font-weight:bold">過去質問スレッド</h5>
-      <form>
+      <form>          
+        <div style="padding-top:1%; margin-bottom:5%;">
           <div v-for="(qa, index) in thread" :key="qa.question"> 
-              <button class="btn btn-link" type="button" v-b-toggle="'accordion-' + index" style="aling:left">{{ qa.question }}</button>
-              <b-collapse v-bind:id="'accordion-' + index" style="algin=left; text-algin=left;">
+              <div class="d-grid gap-2" style="text-align:left; padding-top:1%">
+                <button class="btn btn-light btn-outline-dark" style="text-align:left; padding-top:1%;" type="button" v-b-toggle="'accordion-' + index">{{ qa.question }}</button>
+              </div>
+              <b-collapse v-bind:id="'accordion-' + index" style="algin:left; text-algin:left;">
                   <div id="QABOX">
-                  <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-top=1%">
+                  <p style="overflow-wrap:normal; align:left; text-align:left; padding-top:1%">
                       Q：{{ qa.question_detail }}
                   </p>
                   <span v-for="answer in qa.answers" :key="answer" 
-                      style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:5%; padding-top:0.5%;">
+                      style="overflow-wrap:normal; align:left; text-align:left; padding-left:5%; padding-top:0.5%;">
                       <i class="bi bi-arrow-return-right" style="font-size:1.2rem; color:darkcyan; padding-right:1%"/>
                       A：
                       <span>
-                          <p style="overflow-wrap:normal; algin=left; text-algin=left; padding-left:8%;">{{ answer }}</p>
+                          <p style="overflow-wrap:normal; align:left; text-align:left; padding-left:8%;">{{ answer }}</p>
                       </span>
                   </span>  
                   <div class="mb-3" style="padding-left:5%; padding-top:0.5%;">
@@ -26,8 +29,10 @@
                   </div>
                   </div>
               </b-collapse>
-          </div>
-          <div class="mb-3" style="padding-top:30px;">
+          </div>          
+        </div>
+          <hr>
+          <div class="mb-3">
               <h5 for="Quastion" class="form-label" style="font-weight:bold">質問投稿欄</h5>
               <textarea class="form-control" id="QuastionDetail" rows="1" v-model="newQuestion" placeholder="質問の題名を記載してください"></textarea><br>
               <textarea class="form-control" id="QuastionDetail" rows="3" v-model="newQuestionDetail" placeholder="内容を記載してください"></textarea>

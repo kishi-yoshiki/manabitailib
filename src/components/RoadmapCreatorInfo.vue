@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-bottom:5%;">
     <h5 class="section-title"  style="font-weight:bold padding-bottom:5%">作成者情報</h5>
     <table style="text-align: left">
       <tr>
@@ -64,7 +64,8 @@ export default {
 <style scoped>
 .section-title {
   text-align: left;
-  margin-top: 50px;
-  margin-bottom: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-weight:bold;
 }
 </style>

@@ -7,6 +7,7 @@
       {{ roadmap.outline }}
       </p>
     </div>
+    <div style="margin-bottom:5%;">
     <table align="center">
       <div v-for="(book, index) in roadmap.books" :key="book.title">
         <tr v-if="index !== 0">
@@ -24,7 +25,7 @@
           <td>
             <img :src="book.cover_image" width="100px" height="130px" />
           </td>
-          <td style="vertical-align: top; padding-left: 30px">
+          <td style="vertical-align:top; padding-left:30px">
             <h5 style="margin: 0px; overflow-wrap: normal; font-weight: bold">{{ book.title }}</h5>
             <table style="text-align: left">
               <tr>
@@ -40,10 +41,11 @@
         </tr>
       </div>
     </table>
+    </div>
+    <hr>
     <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
-
+    <hr>
     <QAview />
-
   </div>
 </template>
 
@@ -80,7 +82,7 @@ export default {
   margin-top: 3%;
   margin-left: 20%;
   margin-right: 20%;
-  margin-bottom: 3%;
+  margin-bottom: 50%;
 }
 .v_line_left {
   border-left: 1ex solid darkcyan;
