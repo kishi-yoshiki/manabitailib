@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Header id="border-solid"></Header><br>
-    <div class="flex">
-      <RoadmapList id="border-solid"></RoadmapList>
-      <router-view id="border-solid"></router-view>
+    <Header></Header>
+    <div class="contents">
+      <RoadmapList class="roadmapList"></RoadmapList>
+      <router-view class="roadmapDetail"></router-view>
     </div>
   </div>
 </template>
@@ -20,19 +20,22 @@ export default {
 </script>
 
 <style scoped>
-.flex {
+.contents {
   display: flex;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top : 50px;
   text-align: left;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-bottom: 50%;
+  width: 100%; 
+  margin-bottom: 50px;
+}
+.roadmapDetail {
+  width: 80%;
 
 }
-/* 分割がわかりやすいように枠線表示 */
-#border-solid {
-  border: 3px solid black;
+.roadmapList {
+  border-right: 3px solid black;
+  width: 20%;
 }
 </style>
