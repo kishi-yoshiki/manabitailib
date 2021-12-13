@@ -16,6 +16,12 @@
           </div>
         </b-tab>
         <b-tab title="質問一覧" style=background-color: red>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="検索したいワードを入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">検索</span>
+            </div>
+          </div>
           <b-card v-for="question in questionList" :key="question.id">
             <router-link class="questionLink" :to="'/roadmap/' + question.roadmap">
                 <p class="questionList">{{question.question}}</p> 
