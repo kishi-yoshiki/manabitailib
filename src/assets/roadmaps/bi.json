@@ -1,0 +1,51 @@
+{
+    "name": "BI開発入門　学習ロードマップ",
+    "outline": "BI開発の思考やプロセスを習得していくために、お薦めする参考書の一覧です！初心者の方は、上から順に読まれることをお薦めします！",
+    "books": [
+        {
+            "title": "会社を変える分析の力",
+            "author": "河本薫",
+            "publisher": "講談社",
+            "cover_image": "/img/book/book_bi_01.jpg",
+            "arrow_comment": "最初に読むのはコレ！",
+            "recomend_point": "データ分析はデータ分析価値（意思決定への貢献度×重要性）が高いものじゃないと意味なし　みたいなことが学べます。"
+        },
+        {
+            "title": "Google流資料作成術",
+            "author": "コール・ヌッスバウマー・ナフリック",
+            "publisher": "日本実業出版社",
+            "cover_image": "/img/book/book_bi_02.jpg",
+            "arrow_comment": "次に読むのはコレ！",
+            "recomend_point": "わかりやすい資料とは「データをもとにストーリー(何をしてもらいたいか)を語る」こと。グラフや表の見せ方も学べるので、Excelやパワポで資料作成する人にもおすすめ。"
+        },
+        {
+            "title": "Fundamentals of Data Visualization",
+            "author": "Claus O. Wilke",
+            "publisher": "O'Reilly Media",
+            "cover_image": "/img/book/book_bi_03.jpg",
+            "arrow_comment": "BIをある程度理解できてきた人はコレ！",
+            "recomend_point": "英語の本なので読むのは大変ですが、エッセンスがコンパクトにまとまった本。データ視覚化を、良い/悪いだけではなく、見づらい(Ugly)/そもそも正しさが担保されていない(Wrong)」というように「悪い」の種類を分けているのもおもしろい。"
+        }
+    ],
+    "creator": {
+        "name": "田中 次郎",
+        "name_roman": "Tanaka jiro",
+        "mail_address": "jiro.tanaka@example.com",
+        "tel": "03-1234-5679",
+        "division": "DXIC",
+        "projects": "XX開発案件, YY構築プロジェクト",
+        "licenses": "基本情報技術者",
+        "skills": "Tableau,powerBI,AWS,Azure",
+        "comment": "気軽にコメント下さい！",
+        "url": "https://sns.example.com/yamada",
+        "face_image": "/img/people/creator1.png",
+        "roadmaps": [
+            {
+                "name": "BI入門　学習ロードマップ"
+            },
+            {
+                "name": "データ分析入門　学習ロードマップ"
+            }
+        ]
+    }
+  }
