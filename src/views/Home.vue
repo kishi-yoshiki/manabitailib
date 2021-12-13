@@ -1,5 +1,5 @@
 <template>
     <div>
-        <h3>Home{{ $route.params.id}}</h3>
+        <h3>ようこそ(@^w^@)</h3>
     </div>
 </template>
