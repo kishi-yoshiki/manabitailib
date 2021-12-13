@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-bottom:5%;">
+  <div id="creator" class="creator-info">
     <h5 class="section-title"  style="font-weight:bold padding-bottom:5%">作成者情報</h5>
     <table style="text-align: left">
       <tr>
@@ -71,6 +71,11 @@ export default {
 </script>
 
 <style scoped>
+.creator-info{
+  margin-top:-60px;
+  padding-top:60px;
+  margin-bottom:5%
+}
 .section-title {
   text-align: left;
   margin-top: 1%;
