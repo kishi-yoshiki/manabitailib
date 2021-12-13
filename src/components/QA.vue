@@ -67,6 +67,12 @@ export default {
   created() {
     this.read();
   },
+  watch: {
+    // 動的URLを検知して再描画
+    QAid() {
+      this.read();
+    }
+  },
   methods: {
     // 一覧描画
     read() {
@@ -104,6 +110,7 @@ export default {
       fetch(`http://localhost:3000/thread/${i+1}`, {
       method: "PUT",
       body: JSON.stringify({
+        id:this.thread[i],
         roadmap:this.QAid,
         question: this.thread[i].question,
         question_detail:this.thread[i].question_detail,
