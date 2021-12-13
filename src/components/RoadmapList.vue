@@ -17,9 +17,9 @@
         </b-tab>
         <b-tab title="質問一覧" style=background-color: red>
           <div class="input-group mb-3" style="width:70%;margin:auto;margin-top:15px;">
-            <input type="text" class="form-control" placeholder="検索したいワードを入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" id="qa-text" placeholder="検索したいワードを入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
-              <span class="input-group-text" id="basic-addon2">検索</span>
+              <button class="input-group-text" id="basic-addon2" @click="serchQuestion()">検索</button>
             </div>
           </div>
           <b-card v-for="question in questionList" :key="question.id">
@@ -64,6 +64,15 @@ export default {
         .then((res) => res.json())
         .then((res) => this.questionList = res)
     },
+    serchQuestion(){
+      let qaText = document.getElementById('qa-text');
+      let serchText = qaText.value;
+
+      console.log(serchText)
+        fetch("http://localhost:3000/thread?question=" + serchText)
+        .then((res) => res.json())
+        .then((res) => this.questionList = res)
+    }
   }
 }
 </script>
