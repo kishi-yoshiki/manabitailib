@@ -1,0 +1,50 @@
+{
+    "name": "デザイン思考入門　学習ロードマップ",
+    "outline": "デザイン思考を習得していくために、お薦めする参考書の一覧です！初心者の方は、上から順に読まれることをお薦めします！",
+    "books": [
+        {
+            "title": "はじめてのUIデザイン 改訂版",
+            "author": "池田拓司,宇野雄",
+            "publisher": "-",
+            "cover_image": "/img/book/book_design_01.jpg",
+            "arrow_comment": "最初に読むのはコレ！",
+            "recomend_point": "UIって結局何？をわかりやすく教えてくれます。"
+        },
+        {
+            "title": "オブジェクト指向UIデザイン",
+            "author": "上野学,藤井幸多",
+            "publisher": "ソシオメディア株式会社",
+            "cover_image": "/img/book/book_design_02.jpg",
+            "arrow_comment": "次に読むのはコレ！",
+            "recomend_point": "オブジェクト指向ユーザーインターフェース（OOUI）の基本的な設計手法やメリットを学べます。"        },
+        {
+            "title": "融けるデザイン　ハード×ソフト×ネット時代の新たな設計論",
+            "author": "渡邊恵太",
+            "publisher": "ビー・エヌ・エヌ新社",
+            "cover_image": "/img/book/book_design_03.jpg",
+            "arrow_comment": "更に知りたい人はコレ！",
+            "recomend_point": "良質なUXとは、「どれだけユーザーの思い通りに、そのモノの存在を意識せずに利用することができるかで測れる。」みたいなことが学べます。自己帰属性、情報の道具化など、新鮮な概念が次々と読者に提供されて飽きません！"
+        }
+    ],
+    "creator": {
+        "name": "山田 太郎",
+        "name_roman": "YAMADA Taro",
+        "mail_address": "taro.yamada@example.com",
+        "tel": "03-1234-5678",
+        "division": "DXIC",
+        "projects": "XX開発案件, YY構築プロジェクト",
+        "licenses": "基本情報技術者,Oracle MASTER Platinum",
+        "skills": "Java, Vue.js, Oracle",
+        "comment": "よろしく！",
+        "url": "https://sns.example.com/yamada",
+        "face_image": "/img/people/creator1.png",
+        "roadmaps": [
+            {
+                "name": "クラウド入門　学習ロードマップ"
+            },
+            {
+                "name": "デザイン思考入門　学習ロードマップ"
+            }
+        ]
+    }
+  }
