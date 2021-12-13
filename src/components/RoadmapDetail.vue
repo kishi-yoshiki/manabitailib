@@ -2,7 +2,7 @@
     <div>
         <div align="left" style="padding-bottom: 2%">
         <h3 class="page-header" style="font-weight:bold">{{ roadmap.name }}</h3>
-        <h5 style="margin-bottom: 15px;">作成者: {{ roadmap.creator.name }} </h5>
+        <a href="#creator"><h5 style="margin-bottom: 15px;">作成者: {{ roadmap.creator.name }} </h5></a>
         <p style="overflow-wrap:normal; text-algin=left">
         {{ roadmap.outline }}
         </p>
@@ -49,7 +49,7 @@
             </tr>
         </div>
         </table>
-        </div>    
+        </div> 
     </div>
 </template>
 
