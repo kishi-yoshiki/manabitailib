@@ -4,7 +4,7 @@
     <hr>
     <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
     <hr>
-    <QAview :QAid="QAid"></QAview>
+    <QAview :roadmapId="roadmapId"></QAview>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     roadmap() {
       return require("../assets/roadmaps/" + this.id + ".json");
     },
-    QAid(){
+    roadmapId(){
         return this.id
     }
   }
