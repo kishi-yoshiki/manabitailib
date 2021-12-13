@@ -40,10 +40,12 @@
         "face_image": "/img/people/creator1.png",
         "roadmaps": [
             {
-                "name": "クラウド入門　学習ロードマップ"
+                "name": "クラウド入門　学習ロードマップ",
+                "id": "agile"
             },
             {
-                "name": "デザイン思考入門　学習ロードマップ"
+                "name": "デザイン思考入門　学習ロードマップ",
+                "id": "agile"
             }
         ]
     }

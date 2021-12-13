@@ -49,7 +49,9 @@
     <h5 class="section-title">この人が作成した他のロードマップ</h5>
     <ul>
       <li v-for="roadmap in creator.roadmaps" :key="roadmap.name" style="text-align:left; padding-top:1%">
+        <router-link :to="'/roadmap/' + roadmap.id" @click.native="changeRoadmap(roadmap.id)"> <!-- router-linkではただの@clinkは利かないらしく@click.nativeとする必要がある -->
         {{ roadmap.name }}
+        </router-link>
       </li>
     </ul>
   </div>
@@ -58,6 +60,13 @@
 <script>
 export default {
   props: ["creator"],
+  methods: {
+    // 選択中のロードマップを変更する。状態は親コンポーネントが持っているのでイベントを発行して親コンポーネントで更新してもらう。
+    changeRoadmap(roadmapId) {
+      // console.log("RoadmapCreatorInfo.vue: " + roadmapId);
+      this.$emit("change-roadmap", roadmapId);
+    }
+  }
 };
 </script>
 
