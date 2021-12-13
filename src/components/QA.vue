@@ -78,19 +78,16 @@ export default {
       fetch("http://localhost:3000/thread", {
         method: "POST",
         body: JSON.stringify({
-          id:this.thread.length+1,
           question: this.newQuestion,
-          answers: [],
-          question_detail:this.newQuestionDetail
-
+          question_detail:this.newQuestionDetail,
+          answers: []
         }),
         headers: new Headers({ "Content-type": "application/json" }),
       }).then(() => {
         this.thread.push({
-          id:this.thread.length+1,
           question: this.newQuestion,
-          answers: [],
-          question_detail:this.newQuestionDetail
+          question_detail:this.newQuestionDetail,
+          answers: []
         });
         this.newQuestion = "";
         this.newQuestionDetail = "";
@@ -103,8 +100,8 @@ export default {
       method: "PUT",
       body: JSON.stringify({
         question: this.thread[i].question,
-        answers: this.thread[i].answers,
         question_detail:this.thread[i].question_detail,
+        answers: this.thread[i].answers,
       }),
       headers: new Headers({ "Content-type": "application/json" }),
       })
