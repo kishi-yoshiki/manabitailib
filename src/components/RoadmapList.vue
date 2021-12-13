@@ -70,13 +70,7 @@ export default {
     // 選択中のロードマップを変更する。状態は親コンポーネントが持っているのでイベントを発行して親コンポーネントで更新してもらう。
     changeCurrentRoadmap(roadmapId) {
       this.$emit("change-roadmap", roadmapId);
-    }
-  },
-  // jsonseverからデータを読み込んでquestionList変数に格納
-  created() {
-    this.read();
-  },
-  methods: {
+    },
     // 質問一覧描画
     read() {
       console.log(this.QAid)
@@ -93,6 +87,10 @@ export default {
         .then((res) => res.json())
         .then((res) => this.questionList = res)
     }
+  },
+  // jsonseverからデータを読み込んでquestionList変数に格納
+  created() {
+    this.read();
   }
 }
 </script>
