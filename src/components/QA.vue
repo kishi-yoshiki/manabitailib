@@ -3,7 +3,7 @@
       <h5 aling="left" style="font-weight:bold">過去質問スレッド</h5>
       <form>          
         <div style="padding-top:1%; margin-bottom:5%;">
-          <div v-for="(qa, index) in thread.qalist" :key="qa.question"> 
+          <div v-for="(qa, index) in thread" :key="qa.question"> 
               <div class="d-grid gap-2" style="text-align:left; padding-top:1%">
                 <button class="btn btn-light btn-outline-dark" style="text-align:left; padding-top:1%;" type="button" v-b-toggle="'accordion-' + index">{{ qa.question }}</button>
               </div>
@@ -55,8 +55,6 @@ export default {
     return {
       //質問スレッド
       thread:[],
-      qalist:"",
-
       //投稿する回答
       newAnswer: [],
       //投稿する質問題名
@@ -79,27 +77,23 @@ export default {
 
     // 質問を投稿
     postQuestion() {
-      fetch("http://localhost:3000/thread?roadmap=agile/", {
+      fetch("http://localhost:3000/thread", {
         method: "POST",
         body: JSON.stringify({
+          id:this.thread.length+1,
           roadmap:"agile",
-          qalist:[{
-            id:this.thread.length+1,
-            question: this.newQuestion,
-            question_detail:this.newQuestionDetail,
-            answers: []
-          }]
+          question: this.newQuestion,
+          answers: [],
+          question_detail:this.newQuestionDetail
         }),
         headers: new Headers({ "Content-type": "application/json" }),
       }).then(() => {
         this.thread.push({
+          id:this.thread.length+1,
           roadmap:"agile",
-          qalist:[{
-            id:this.thread.length+1,
-            question: this.newQuestion,
-            question_detail:this.newQuestionDetail,
-            answers: []
-          }]
+          question: this.newQuestion,
+          answers: [],
+          question_detail:this.newQuestionDetail
         });
         this.newQuestion = "";
         this.newQuestionDetail = "";
@@ -111,6 +105,7 @@ export default {
       fetch(`http://localhost:3000/thread/${i+1}`, {
       method: "PUT",
       body: JSON.stringify({
+        roadmap:"agile",
         question: this.thread[i].question,
         answers: this.thread[i].answers,
         question_detail:this.thread[i].question_detail,
