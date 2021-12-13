@@ -25,10 +25,12 @@
           <b-card v-for="question in questionList" :key="question.id">
             <router-link class="questionLink" :to="'/roadmap/' + question.roadmap">
                 <p class="questionList">{{question.question}}</p> 
-              <div class="questionDetail">
-                  <p>{{question.roadmap}}</p>
+              <div v-for="roadmap in roadmapEntries" :key="roadmap.id">
+                <div class="questionDetail" v-if="roadmap.id==question.roadmap">
+                  <p>{{roadmap.name}}</p>
                   <p>更新日時: yyyy/mm/dd hh:mm</p>
-              </div> 
+                </div>  
+              </div>
             </router-link>
           </b-card>
         </b-tab>
@@ -81,6 +83,7 @@ export default {
   white-space: nowrap;
   margin-top:-5px;
   margin-bottom:-5px;
+  font-size:12px;
 }
 .questionLink{
     text-decoration: none;
