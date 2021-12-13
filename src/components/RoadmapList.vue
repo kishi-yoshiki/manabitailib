@@ -16,7 +16,7 @@
           </div>
         </b-tab>
         <b-tab title="質問一覧" style=background-color: red>
-          <div class="input-group mb-3">
+          <div class="input-group mb-3" style="width:70%;margin:auto;margin-top:15px;">
             <input type="text" class="form-control" placeholder="検索したいワードを入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon2">検索</span>

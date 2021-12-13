@@ -31,11 +31,11 @@ export default {
   margin-bottom: 50px;
 }
 .roadmapDetail {
-  width: 80%;
+  width: 70%;
 
 }
 .roadmapList {
   border-right: 3px solid black;
-  width: 20%;
+  width: 30%;
 }
 </style>

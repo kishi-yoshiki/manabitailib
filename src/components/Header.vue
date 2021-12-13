@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <router-link :to="'/'">
-     <h2 style="color:white;margin-top: 5px;"><u>社内図書システム</u></h2>
+     <h2 style="color:white;margin-top: 5px;position:relative;left:5px;"><u>社内図書システム</u></h2>
     </router-link>
   </div>
 </template>
