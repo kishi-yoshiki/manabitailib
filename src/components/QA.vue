@@ -81,7 +81,6 @@ export default {
       fetch("http://localhost:3000/thread", {
         method: "POST",
         body: JSON.stringify({
-          id:this.thread.length+1,
           roadmap:this.QAid,
           question: this.newQuestion,
           question_detail:this.newQuestionDetail,
@@ -90,7 +89,6 @@ export default {
         headers: new Headers({ "Content-type": "application/json" }),
       }).then(() => {
         this.thread.push({
-          id:this.thread.length+1,
           roadmap:this.QAid,
           question: this.newQuestion,
           answers: [],
