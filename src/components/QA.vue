@@ -39,7 +39,7 @@
           
               <span class="mb-3 form-check">
               <span class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-top:1%;">
-                  <button type="button" class="btn btn-success" @click="postQuestion">投稿</button>
+                  <button class="btn btn-success" @click="postQuestion">投稿</button>
               </span>
           </span>
           </div>
