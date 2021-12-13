@@ -23,18 +23,26 @@
             </tr>
             <tr>
             <td>
-                <img :src="book.cover_image" width="100px" height="130px" />
+                <img :src="book.cover_image" width="100px" height="130px"/>
             </td>
             <td style="vertical-align:top; padding-left:30px">
                 <h5 style="margin: 0px; overflow-wrap: normal; font-weight: bold">{{ book.title }}</h5>
                 <table style="text-align: left">
                 <tr>
-                    <td>著者名:</td>
+                    <td width="60">著者名:</td>
                     <td>{{ book.author }}</td>
                 </tr>
                 <tr>
                     <td>出版社:</td>
                     <td>{{ book.publisher }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="recomend">
+                      <span class="box-title">おすすめポイント</span>
+                      <p>{{ book.recomend_point }}</p>
+                    </div>
+                  </td>
                 </tr>
                 </table>
             </td>
@@ -71,5 +79,32 @@ export default {
   text-align: left;
   margin-top: 50px;
   margin-bottom: 5px;
+}
+.recomend {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px darkcyan;
+    background-color: mintcream;
+    box-shadow: 3px 3px 3px #ccc;
+    font-size: 13px;
+}
+.recomend .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -22px;
+    left: -3px;
+    padding: 0 7px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    background: darkcyan;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 3px 3px 0 0;
+}
+.recomend p {
+    margin: 0; 
+    padding: 0;
 }
 </style>
