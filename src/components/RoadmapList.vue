@@ -1,24 +1,34 @@
 <template>
   <div>
-    <div v-for="roadmap in roadmapEntries" :key="roadmap.id" class="my-2">
-      <!-- TODO: ロードマップ章さの正式なURL(パス)は別チームに訊く -->
-      <router-link :to="'/roadmap/' + roadmap.id">
-        <b-button :id="'roadmap-entry-' + roadmap.id" class="btn btn-light btn-outline-dark w-100 ml-3 text-truncate" style="text-align:left; padding: 5px;">
-          {{ roadmap.name }}
-        </b-button>
-        <b-tooltip :target="'roadmap-entry-' + roadmap.id" triggers="hover" placement="right">
-          {{ roadmap.name }}
-        </b-tooltip>
-      </router-link>
-    </div>
-    <br>
-
-    <div class ="questionList" v-for="question in questionList" :key="question.id">
-      <a href=""><p>{{question.question}}</p></a>
-    </div>
-    
+    <b-card no-body>
+      <b-tabs>
+        <b-tab title="マップ一覧">
+          <div v-for="roadmap in roadmapEntries" :key="roadmap.id" class="my-2">
+            <!-- TODO: ロードマップ章さの正式なURL(パス)は別チームに訊く -->
+            <router-link :to="'/roadmap/' + roadmap.id">
+              <b-button :id="'roadmap-entry-' + roadmap.id" class="btn btn-light btn-outline-dark w-100 ml-3 text-truncate" style="text-align:left; padding: 5px;">
+                {{ roadmap.name }}
+              </b-button>
+              <b-tooltip :target="'roadmap-entry-' + roadmap.id" triggers="hover" placement="right">
+                {{ roadmap.name }}
+              </b-tooltip>
+            </router-link>
+          </div>
+        </b-tab>
+        <b-tab title="質問一覧" style=background-color: red>
+          <b-card v-for="question in questionList" :key="question.id">
+            <router-link class="questionLink" :to="'/roadmap/' + question.roadmap">
+                <p class="questionList">{{question.question}}</p> 
+              <div class="questionDetail">
+                  <p>{{question.roadmap}}</p>
+                  <p>更新日時: yyyy/mm/dd hh:mm</p>
+              </div> 
+            </router-link>
+          </b-card>
+        </b-tab>
+      </b-tabs>
+    </b-card>
   </div>
-
 </template>
 
 <script>
@@ -51,9 +61,23 @@ export default {
 </script>
 
 <style scoped>
-.questionList > a > p{
+.questionList{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+    margin-bottom:5px;
+    text-decoration:underline;
+}
+.questionDetail > p{
+  color: darkgrey;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top:-5px;
+  margin-bottom:-5px;
+}
+.questionLink{
+    text-decoration: none;
 }
 </style>
+
