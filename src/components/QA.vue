@@ -3,7 +3,7 @@
       <h5 aling="left" style="font-weight:bold">過去質問スレッド</h5>
       <form>          
         <div style="padding-top:1%; margin-bottom:5%;">
-          <div v-for="(qa, index) in thread" :key="qa.question"> 
+          <div v-for="(qa, index) in thread" :key="qa.id"> 
               <div class="d-grid gap-2" style="text-align:left; padding-top:1%">
                 <button class="btn btn-light btn-outline-dark" style="text-align:left; padding-top:1%;" type="button" v-b-toggle="'accordion-' + index">{{ qa.question }}</button>
               </div>
@@ -50,7 +50,7 @@
 <script>
 export default {
   name: 'QAview',
-  props: ["QAid"],
+  props: ["roadmapId"],
   data() {
     return {
       //質問スレッド
@@ -67,11 +67,16 @@ export default {
   created() {
     this.read();
   },
+  watch: {
+    // 動的URLを検知して再描画
+    roadmapId() {
+      this.read();
+    }
+  },
   methods: {
     // 一覧描画
     read() {
-      console.log(this.QAid)
-      fetch("http://localhost:3000/thread?roadmap=" + this.QAid)
+      fetch("http://localhost:3000/thread?roadmap=" + this.roadmapId)
         .then((res) => res.json())
         .then((res) => (this.thread = res))
     },
@@ -81,7 +86,7 @@ export default {
       fetch("http://localhost:3000/thread", {
         method: "POST",
         body: JSON.stringify({
-          roadmap:this.QAid,
+          roadmap:this.roadmapId,
           question: this.newQuestion,
           question_detail:this.newQuestionDetail,
           answers: []
@@ -89,22 +94,22 @@ export default {
         headers: new Headers({ "Content-type": "application/json" }),
       }).then(() => {
         this.thread.push({
-          roadmap:this.QAid,
+          roadmap:this.roadmapId,
           question: this.newQuestion,
-          answers: [],
-          question_detail:this.newQuestionDetail
+          question_detail:this.newQuestionDetail,
+          answers: []
         });
         this.newQuestion = "";
         this.newQuestionDetail = "";
       });
     },
     // 回答を投稿
-    postAnswer(i) {
+    postAnswer(i) {  
       this.thread[i].answers.push(this.newAnswer[i]);
-      fetch(`http://localhost:3000/thread/${i+1}`, {
+      fetch(`http://localhost:3000/thread/${this.thread[i].id}`, {
       method: "PUT",
       body: JSON.stringify({
-        roadmap:this.QAid,
+        roadmap:this.roadmapId,
         question: this.thread[i].question,
         question_detail:this.thread[i].question_detail,
         answers: this.thread[i].answers,
