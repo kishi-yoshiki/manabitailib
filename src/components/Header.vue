@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <h2 style="color:white;margin-top: 5px;">社内図書システム</h2>
+    <router-link :to="'/'">
+     <h2 style="color:white;margin-top: 5px;"><u>社内図書システム</u></h2>
+    </router-link>
   </div>
 </template>
 
@@ -15,7 +17,7 @@
   display: block;
   width: 100%;
   height: 50px; 
-  background-color: rgb(83, 184, 243);
+  background-color: darkcyan;
   z-index:10;
   border-block-end: 5px solid black;
 }
