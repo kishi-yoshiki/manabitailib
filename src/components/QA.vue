@@ -3,7 +3,7 @@
       <h5 aling="left" style="font-weight:bold">過去質問スレッド</h5>
       <form>          
         <div style="padding-top:1%; margin-bottom:5%;">
-          <div v-for="(qa, index) in thread" :key="qa.question"> 
+          <div v-for="(qa, index) in thread.qalist" :key="qa.question"> 
               <div class="d-grid gap-2" style="text-align:left; padding-top:1%">
                 <button class="btn btn-light btn-outline-dark" style="text-align:left; padding-top:1%;" type="button" v-b-toggle="'accordion-' + index">{{ qa.question }}</button>
               </div>
@@ -50,10 +50,13 @@
 <script>
 export default {
   name: 'QAview',
+  props: ["QAid"],
   data() {
     return {
       //質問スレッド
-      thread: [],
+      thread:[],
+      qalist:"",
+
       //投稿する回答
       newAnswer: [],
       //投稿する質問題名
@@ -69,28 +72,34 @@ export default {
   methods: {
     // 一覧描画
     read() {
-      fetch("http://localhost:3000/thread")
+      fetch("http://localhost:3000/thread?roadmap=agile/")
         .then((res) => res.json())
-        .then((res) => (this.thread = res));
+        .then((res) => (this.thread = res))
     },
+
     // 質問を投稿
     postQuestion() {
-      fetch("http://localhost:3000/thread", {
+      fetch("http://localhost:3000/thread?roadmap=agile/", {
         method: "POST",
         body: JSON.stringify({
-          id:this.thread.length+1,
-          question: this.newQuestion,
-          answers: [],
-          question_detail:this.newQuestionDetail
-
+          roadmap:"agile",
+          qalist:[{
+            id:this.thread.length+1,
+            question: this.newQuestion,
+            question_detail:this.newQuestionDetail,
+            answers: []
+          }]
         }),
         headers: new Headers({ "Content-type": "application/json" }),
       }).then(() => {
         this.thread.push({
-          id:this.thread.length+1,
-          question: this.newQuestion,
-          answers: [],
-          question_detail:this.newQuestionDetail
+          roadmap:"agile",
+          qalist:[{
+            id:this.thread.length+1,
+            question: this.newQuestion,
+            question_detail:this.newQuestionDetail,
+            answers: []
+          }]
         });
         this.newQuestion = "";
         this.newQuestionDetail = "";
