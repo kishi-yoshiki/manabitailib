@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!-- ツールチップ動作確認用のサンプル -->
-        <b-button v-b-tooltip.hover title="ももんが" placement="right">
-          ももんが
-        </b-button>
     <div v-for="roadmap in roadmapEntries" :key="roadmap.id" class="my-2">
       <!-- TODO: ロードマップ章さの正式なURL(パス)は別チームに訊く -->
       <router-link :to="'/roadmap/' + roadmap.id">
