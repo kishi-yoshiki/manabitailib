@@ -41,10 +41,12 @@
         "face_image": "/img/people/creator1.png",
         "roadmaps": [
             {
-                "name": "BI入門　学習ロードマップ"
+                "name": "アジャイル開発入門　学習ロードマップ",
+                "id": "agile"
             },
             {
-                "name": "データ分析入門　学習ロードマップ"
+                "name": "データ分析入門　学習ロードマップ",
+                "id": "agile"
             }
         ]
     }

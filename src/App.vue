@@ -2,8 +2,8 @@
   <div>
     <Header></Header>
     <div class="contents">
-      <RoadmapList class="roadmapList"></RoadmapList>
-      <router-view class="roadmapDetail"></router-view>
+      <RoadmapList class="roadmapList" :currentRoadmap="currentRoadmap" v-on:change-roadmap="currentRoadmap = $event"></RoadmapList>
+      <router-view class="roadmapDetail" v-on:change-roadmap="currentRoadmap = $event"></router-view>
     </div>
   </div>
 </template>
@@ -16,6 +16,12 @@ export default {
     Header,
     RoadmapList,
   },
+  data() {
+    return {
+      // 表示中のロードマップのID。実際に参照するのはRoadmapListコンポーネントだが、更新は他のコンポーネントでも行われるので、ここで定義しておく。たぶんVuexを使うほうがよい。
+      currentRoadmap: ""
+    }
+  }
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div id="app">
     <RoadmapDetail :roadmap="roadmap"></RoadmapDetail>
     <hr>
-    <roadmap-creator-info :creator="roadmap.creator"></roadmap-creator-info>
+    <roadmap-creator-info :creator="roadmap.creator" v-on:change-roadmap="changeRoadmap($event)"></roadmap-creator-info>
     <hr>
     <QAview :QAid="QAid"></QAview>
   </div>
@@ -27,6 +27,13 @@ export default {
     },
     QAid(){
         return this.id
+    }
+  },
+  methods: {
+    // 選択中のロードマップを変更する。状態は親コンポーネントが持っているのでイベントを発行して親コンポーネントで更新してもらう。
+    changeRoadmap(roadmapId) {
+      // console.log("Roadmap.vue: " + roadmapId);
+      this.$emit("change-roadmap", roadmapId);
     }
   }
 };

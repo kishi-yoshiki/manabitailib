@@ -12,5 +12,11 @@ export default new Router({
     routes: [
       {path: "/", component: Home, props: true},
       {path: "/roadmap/:id", component: Roadmap, props: true}
-  ]
+  ], scrollBehavior() {
+    // 画面遷移の際、常に画面先頭を表示させる
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 });
