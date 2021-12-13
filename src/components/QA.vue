@@ -70,7 +70,8 @@ export default {
   methods: {
     // 一覧描画
     read() {
-      fetch("http://localhost:3000/thread?roadmap=agile/")
+      console.log(this.QAid)
+      fetch("http://localhost:3000/thread?roadmap=" + this.QAid)
         .then((res) => res.json())
         .then((res) => (this.thread = res))
     },
@@ -81,16 +82,16 @@ export default {
         method: "POST",
         body: JSON.stringify({
           id:this.thread.length+1,
-          roadmap:"agile",
+          roadmap:this.QAid,
           question: this.newQuestion,
-          answers: [],
-          question_detail:this.newQuestionDetail
+          question_detail:this.newQuestionDetail,
+          answers: []
         }),
         headers: new Headers({ "Content-type": "application/json" }),
       }).then(() => {
         this.thread.push({
           id:this.thread.length+1,
-          roadmap:"agile",
+          roadmap:this.QAid,
           question: this.newQuestion,
           answers: [],
           question_detail:this.newQuestionDetail
@@ -105,10 +106,10 @@ export default {
       fetch(`http://localhost:3000/thread/${i+1}`, {
       method: "PUT",
       body: JSON.stringify({
-        roadmap:"agile",
+        roadmap:this.QAid,
         question: this.thread[i].question,
-        answers: this.thread[i].answers,
         question_detail:this.thread[i].question_detail,
+        answers: this.thread[i].answers,
       }),
       headers: new Headers({ "Content-type": "application/json" }),
       })
