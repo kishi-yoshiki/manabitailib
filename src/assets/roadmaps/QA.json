@@ -22,18 +22,18 @@
       ]
     },
     {
-      "id": 3,
-      "roadmap": "agile",
-      "question": "aasda",
+      "roadmap": "bi",
+      "question": "BIツールについて",
+      "question_detail": "実際の案件で初めてBIツールを扱う際の注意点などを教えていただきたいです。",
       "answers": [],
-      "question_detail": "asasaw"
+      "id": 3
     },
     {
-      "id": 4,
-      "roadmap": "agile",
-      "question": "asadasda",
+      "roadmap": "design",
+      "question": "デザイン思考について",
+      "question_detail": "実案件でデザイン思考を取り入れていく際の注意点などを教えていただきたいです。",
       "answers": [],
-      "question_detail": "asdafasfas"
+      "id": 4
     }
   ]
 }

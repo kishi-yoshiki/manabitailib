@@ -4,7 +4,7 @@
     <hr>
     <roadmap-creator-info :creator="roadmap.creator" v-on:change-roadmap="changeRoadmap($event)"></roadmap-creator-info>
     <hr>
-    <QAview :QAid="QAid"></QAview>
+    <QAview :roadmapId="roadmapId"></QAview>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     roadmap() {
       return require("../assets/roadmaps/" + this.id + ".json");
     },
-    QAid(){
+    roadmapId(){
         return this.id
     }
   },
@@ -46,10 +46,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
-  margin-top: 2%;
+  margin-top: 3%;
   margin-left: 5%;
   margin-right: 5%;
-  margin-bottom: 50%;
+  margin-bottom: 3%;
 }
 .v_line_left {
   border-left: 1ex solid darkcyan;
