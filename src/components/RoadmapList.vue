@@ -13,8 +13,8 @@
     </div>
     <br>
 
-    <div v-for="question in questionList" :key="question.id">
-      {{question.question}}<br>
+    <div class ="questionList" v-for="question in questionList" :key="question.id">
+      <a href=""><p>{{question.question}}</p></a>
     </div>
     
   </div>
@@ -50,4 +50,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.questionList > a > p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>
