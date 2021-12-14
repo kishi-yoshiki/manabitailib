@@ -2,7 +2,7 @@
   <div>
     <b-card no-body>
       <b-tabs>
-        <b-tab title="マップ一覧">
+        <b-tab title="ロードマップ一覧">
           <div v-for="roadmap in roadmapEntries" :key="roadmap.id" class="my-2">
             <router-link :to="'/roadmap/' + roadmap.id">
               <b-button :id="'roadmap-entry-' + roadmap.id" @click="changeCurrentRoadmap(roadmap.id)" :class="classesForRoadmapEntry(roadmap.id)" style="text-align:left; padding: 5px;">
@@ -13,7 +13,7 @@
         </b-tab>
         <b-tab title="質問一覧" style=background-color: red>
           <div class="input-group mb-3" style="width:70%;margin:auto;margin-top:15px;">
-            <input type="text" class="form-control" id="qa-text" placeholder="検索したいワードを入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" id="qa-text" placeholder="検索したい質問を入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <button class="input-group-text" id="basic-addon2" @click="serchQuestion()">検索</button>
             </div>
@@ -82,10 +82,15 @@ export default {
       let qaText = document.getElementById('qa-text');
       let serchText = qaText.value;
 
-      console.log(serchText)
+      if (serchText == "") {
+        fetch("http://localhost:3000/thread")
+        .then((res) => res.json())
+        .then((res) => this.questionList = res)
+      } else {
         fetch("http://localhost:3000/thread?question=" + serchText)
         .then((res) => res.json())
         .then((res) => this.questionList = res)
+      }
     }
   },
   // jsonseverからデータを読み込んでquestionList変数に格納
