@@ -62,6 +62,7 @@
 .title {
   /*親div*/
   position: relative;
+  margin-left: 30%;
 }
 
 .title p {

@@ -46,10 +46,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
+  width: 60%;
   margin-top: 3%;
-  margin-left: 5%;
+  margin-left: 35%;
   margin-right: 5%;
   margin-bottom: 3%;
+  position:absolute;
 }
 .v_line_left {
   border-left: 1ex solid darkcyan;

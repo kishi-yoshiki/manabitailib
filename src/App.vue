@@ -38,10 +38,12 @@ export default {
 }
 .roadmapDetail {
   width: 70%;
-
+  position:relative;
 }
 .roadmapList {
   border-right: 3px solid black;
   width: 30%;
+  height: 100%;
+  position:fixed;
 }
 </style>
