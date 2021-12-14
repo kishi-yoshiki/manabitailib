@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <router-link :to="'/'">
-     <h2 style="color:white;margin-top: 5px;position:relative;left:5px;"><u>Knowledge Cafe</u></h2>
+    <router-link :to="'/'" style="text-decoration: none;">
+     <h2 style="color:white;margin-top: 5px;position:relative;left:5px;padding-left: 30px;">Knowledge Cafe</h2>
     </router-link>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card no-body>
-      <b-tabs>
+      <b-tabs style="margin-left: 30px;" card>
         <b-tab title="ロードマップ一覧">
           <div v-for="roadmap in roadmapEntries" :key="roadmap.id" class="my-2">
             <router-link :to="'/roadmap/' + roadmap.id">
@@ -11,14 +11,14 @@
             </router-link>
           </div>
         </b-tab>
-        <b-tab title="質問一覧" style=background-color: red>
+        <b-tab title="質問一覧">
           <div class="input-group mb-3" style="width:70%;margin:auto;margin-top:15px;">
             <input type="text" class="form-control" id="qa-text" placeholder="検索したい質問を入力して下さい" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <button class="input-group-text" id="basic-addon2" @click="serchQuestion()">検索</button>
             </div>
           </div>
-          <b-card v-for="question in questionList" :key="question.id">
+          <b-card v-for="question in questionList" :key="question.id" style="border-left: none; border-right: none;">
             <router-link class="questionLink" :to="'/roadmap/' + question.roadmap">
                 <p class="questionList">{{question.question}}</p> 
               <div v-for="roadmap in roadmapEntries" :key="roadmap.id">

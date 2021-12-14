@@ -27,7 +27,7 @@
             </td>
             <td style="vertical-align:top; padding-left:30px">
                 <h5 style="margin: 0px; overflow-wrap: normal; font-weight: bold">{{ book.title }}</h5>
-                <table style="text-align: left">
+                <table style="text-align: left;width: 800px">
                 <tr>
                     <td width="60">著者名:</td>
                     <td>{{ book.author }}</td>
@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                   <td colspan="2">
-                    <div class="recomend">
+                    <div class="recomend" style="width: 90%;">
                       <span class="box-title">おすすめポイント</span>
                       <p>{{ book.recomend_point }}</p>
                     </div>
